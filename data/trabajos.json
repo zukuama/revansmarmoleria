@@ -9,6 +9,19 @@
       "imagen": "source/mesada2.webp",
       "descripcion": "Mármol Carrara, isla moderna",
       "material": "marmol"
-    }
-  ]
-}
+    } 
+    ]
+      ,
+    "baños": [
+      {
+        "imagen": "source/isla1.webp",
+        "descripcion": "Granito negro Brasil, 1.80x0.60, pulido brillante",
+        "material": "granito"
+      },
+      {
+        "imagen": "source/isla2.webp",
+        "descripcion": "Mármol Carrara, isla moderna",
+        "material": "marmol"
+      }
+    ]
+  }
