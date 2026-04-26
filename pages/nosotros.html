@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Quiénes Somos</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+<link rel="stylesheet" href="../css/nosotros.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-logo">Marmolería</div>
+
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+  <div class="nav-links" id="menu">
+    <a href="../index.html">Inicio</a>
+    <a href="#">Quiénes somos</a>
+    <a href="../index.html#trabajos">Trabajos</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero-nosotros">
+  <div class="overlay">
+    <div class="hero-content">
+      <h1>Quiénes somos</h1>
+      <p>Expertos en mármol y piedras premium</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENIDO -->
+<section class="nosotros-content">
+
+  <div class="container">
+
+    <h2>Calidad, diseño y atención personalizada</h2>
+
+    <p class="intro">
+      Somos especialistas en el diseño e implementación de proyectos de alta gama
+      con mármol, granito, Silestone y Dekton de primera calidad.
+    </p>
+
+    <div class="nosotros-grid">
+
+      <!-- TEXTO -->
+      <div class="texto">
+
+        <p>
+          En nuestra marmolería nos distinguimos por brindar una atención totalmente
+          personalizada, acompañando a cada cliente desde la idea inicial hasta la
+          instalación final.
+        </p>
+
+        <p>
+          Nuestra trayectoria en el rubro nos permite combinar la habilidad artesanal
+          con tecnología de vanguardia, garantizando acabados impecables, duraderos
+          y alineados al estilo y las necesidades de cada espacio.
+        </p>
+
+        <p class="frase">
+          Cada proyecto es único y nuestro compromiso es lograr resultados que
+          superen las expectativas.
+        </p>
+
+        <a href="https://wa.me/5491164032664" class="btn">
+          Quiero más info
+        </a>
+
+      </div>
+
+      <!-- IMAGEN -->
+      <div class="imagen">
+        <img src="../source/nosotros.webp" alt="Trabajo en mármol">
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>

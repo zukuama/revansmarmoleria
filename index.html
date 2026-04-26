@@ -3,44 +3,220 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Marmolería Premium</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="css/productos.css">
 </head>
 
 <body>
 
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-logo">Marmolería</div>
+
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+  <div class="nav-links" id="menu">
+    <a href="#">Inicio</a>
+    <a href="pages/nosotros.html">Quiénes somos</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#productos">Productos</a>
+    <a href="#trabajos">Trabajos</a>
+  </div>
+</nav>
+
+<!-- HERO -->
 <header class="hero">
   <div class="overlay">
-    <h1>Marmolería Premium</h1>
-    <p>Diseño, fabricación e instalación en mármol, granito y cuarzo</p>
-    <a href="#trabajos" class="btn">Ver trabajos</a>
+    <div class="hero-content">
+      <h1>Transformamos espacios en obras de diseño</h1>
+      <p>Mármol, granito y superficies premium con terminaciones de alta gama</p>
+
+      <div class="hero-buttons">
+        <a href="#trabajos" class="btn">Ver trabajos</a>
+        <a href="https://wa.me/5491164032664" class="btn btn-outline">Contactar</a>
+      </div>
+    </div>
   </div>
 </header>
 
-<section id="trabajos">
-  <h2>Trabajos</h2>
+<!-- SERVICIOS -->
+<section id="servicios" class="servicios animar">
+  <div class="container">
+    <h2>Servicios</h2>
 
-  <div class="grid">
+    <div class="servicios-grid">
+      <div class="servicio">
+        <h3>Mesadas de cocina</h3>
+        <p>Diseños a medida con materiales de alta resistencia.</p>
+      </div>
 
-    <a href="categoria.html?cat=mesadas" class="card">
-      <img src="source/isla1.webp">
-      <h3>Mesadas</h3>
-    </a>
+      <div class="servicio">
+        <h3>Baños premium</h3>
+        <p>Soluciones elegantes en mármol y cuarzo.</p>
+      </div>
 
-    <a href="categoria.html?cat=banos" class="card">
-      <img src="source/.webp">
-      <h3>Baños</h3>
-    </a>
-
-    <a href="categoria.html?cat=revestimientos" class="card">
-      <img src="source/revestimientos.webp">
-      <h3>Revestimientos</h3>
-    </a>
-
+      <div class="servicio">
+        <h3>Revestimientos</h3>
+        <p>Aplicaciones en interiores y exteriores.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<a href="https://wa.me/5491164032664" class="whatsapp" target="_blank">💬</a>
+<!-- PRODUCTOS -->
+<section id="productos" class="productos">
+
+  <div class="container">
+
+    <h2>Nuestros Productos</h2>
+    <p class="subtitulo">Transformá tus espacios con nuestros materiales</p>
+
+    <!-- SILESTONE -->
+    <div class="producto fila">
+      <div class="producto-img">
+        <img src="source/silestone.webp">
+      </div>
+      <div class="producto-texto">
+        <h3>Silestone</h3>
+        <p>
+          Superficie compuesta principalmente por cuarzo, de gran resistencia al rayado y a las manchas.
+        </p>
+        <span>Usos: mesadas, bachas, revestimientos</span>
+      </div>
+    </div>
+
+    <!-- DEKTON -->
+    <div class="producto fila reverse">
+      <div class="producto-img">
+        <img src="source/dekton.webp">
+      </div>
+      <div class="producto-texto">
+        <h3>Dekton</h3>
+        <p>
+          Superficie ultracompacta de alta tecnología, resistente al calor, rayos UV y manchas.
+        </p>
+        <span>Usos: mesadas, pisos, fachadas</span>
+      </div>
+    </div>
+
+    <!-- MARMETAS -->
+    <div class="producto fila">
+      <div class="producto-img">
+        <img src="source/marmetas.webp">
+      </div>
+      <div class="producto-texto">
+        <h3>Marmetas</h3>
+        <p>
+          Piedra natural modular que combina estética clásica y practicidad.
+        </p>
+        <span>Usos: pisos, revestimientos</span>
+      </div>
+    </div>
+
+    <!-- MARMOTECH -->
+    <div class="producto fila reverse">
+      <div class="producto-img">
+        <img src="source/marmotech.webp">
+      </div>
+      <div class="producto-texto">
+        <h3>Marmotech</h3>
+        <p>
+          Material moderno con estética de mármol y gran durabilidad.
+        </p>
+        <span>Usos: mesadas, muebles</span>
+      </div>
+    </div>
+
+    <!-- PIEDRAS NATURALES -->
+    <div class="producto fila">
+      <div class="producto-img">
+        <img src="source/marmol.webp">
+      </div>
+      <div class="producto-texto">
+        <h3>Piedras Naturales</h3>
+        <p><strong>Mármol:</strong> elegancia natural con vetas únicas.</p>
+        <p><strong>Granito:</strong> alta resistencia para uso diario.</p>
+        <p><strong>Cuarcita:</strong> piedra premium de gran dureza.</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- TRABAJOS -->
+<section id="trabajos" class="trabajos animar">
+  <div class="container">
+    <h2>Trabajos</h2>
+
+    <div class="grid">
+
+      <a href="categoria.html?cat=mesadas" class="card">
+        <img src="source/isla1.webp">
+        <div class="card-overlay"><h3>Mesadas</h3></div>
+      </a>
+
+      <a href="categoria.html?cat=banos" class="card">
+        <img src="source/bano1.webp">
+        <div class="card-overlay"><h3>Baños</h3></div>
+      </a>
+
+      <a href="categoria.html?cat=revestimientos" class="card">
+        <img src="source/revestimientos.webp">
+        <div class="card-overlay"><h3>Revestimientos</h3></div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-col">
+      <img src="source/logo.png" class="logo">
+      <p>Diseño y fabricación en mármol y piedras premium.</p>
+    </div>
+
+    <div class="footer-col">
+      <h3>Contacto</h3>
+      <button class="btn-footer mapa" onclick="abrirMapa()">Ver ubicación</button>
+      <a href="https://wa.me/5491164032664" class="btn-footer whatsapp">WhatsApp</a>
+      <p>📞 11 2606-9026</p>
+    </div>
+
+    <div class="footer-col">
+      <h3>Horarios</h3>
+      <p>Lunes a Viernes</p>
+      <p>9:00 a 17:00</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Marmolería Premium
+  </div>
+</footer>
+
+<a href="https://wa.me/5491164032664" class="whatsapp-float">💬</a>
+
+<script src="js/animaciones.js"></script>
+
+<script>
+function abrirMapa(){
+  window.open("https://www.google.com/maps?q=Sebastián+Pizarro+876+Merlo+Buenos+Aires");
+}
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("active");
+}
+</script>
 
 </body>
 </html>
