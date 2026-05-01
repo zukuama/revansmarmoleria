@@ -1,11 +1,10 @@
-<!-- Chosen Palette: Piedra y Oro (Fondo: #fafaf9 stone-50, Acentos: #d97706 amber-600, Contrastes: #1c1917 stone-900) -->
-<!-- Application Structure Plan: Se integra el footer oficial solicitado por el usuario con su lógica de mapas y contactos. Se ha expandido significativamente la sección de Materiales para ofrecer detalles técnicos profundos (resistencia, porosidad, usos recomendados) convirtiéndola en una guía de compra real y detallada. -->
+<!-- Palette: Piedra, Carbón y Oro (Fondo: #fafaf9, Acentos: #d97706 amber-600, Contrastes: #1c1917 stone-900) -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Revans Marmolería | Artesanía en Piedra</title>
+    <title>Revans Marmolería | Especialistas en Superficies</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -21,53 +20,33 @@
         .font-serif-brand { font-family: 'Cinzel', serif; }
 
         .hero-bg {
-            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.4)), url('source/isla7.webp');
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('source/isla7.webp');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
 
-        .hero-nosotros-bg {
-            background: linear-gradient(rgba(28, 25, 23, 0.85), rgba(28, 25, 23, 0.85)), url('source/isla6.webp');
-            background-size: cover;
-            background-position: center;
+        .material-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: #ffffff;
+            border: 1px solid #e7e5e4;
         }
-
-        .texture-card {
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            filter: grayscale(100%);
-            opacity: 0.6;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        .texture-card.active {
-            filter: grayscale(0%);
-            opacity: 1;
-            transform: translateY(-5px);
+        
+        .material-card:hover {
+            transform: translateY(-10px);
             border-color: #d97706;
-            background-color: #1c1917;
+            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.1);
         }
 
-        .modal-overlay {
-            background-color: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(8px);
-            transition: all 0.3s ease;
+        .tag-tech {
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
         }
 
-        .card-project {
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-        .card-project:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.15);
-        }
-
-        .filter-btn.active {
-            background-color: #d97706;
-            color: white;
-            border-color: #d97706;
-        }
-
-        /* Estilos Footer Personalizados */
+        /* Estilos Footer Solicitados */
         .footer {
             background-color: #0c0a09;
             color: #e7e5e4;
@@ -134,196 +113,183 @@
             letter-spacing: 1px;
         }
 
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        .filter-btn.active {
+            background-color: #d97706;
+            color: white;
+            border-color: #d97706;
         }
-        .animate-up { animation: slideUp 0.8s ease forwards; }
     </style>
 </head>
-<body class="antialiased overflow-x-hidden">
+<body class="antialiased">
 
     <!-- Navegación -->
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-lg border-b border-stone-100">
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-stone-100">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="font-serif-brand text-2xl font-bold tracking-tighter flex items-center gap-3">
+            <div class="flex items-center gap-3">
                 <img src="source/logo-con-letras-negra.webp" alt="Revans Logo" class="h-10 w-auto">
             </div>
             <div class="hidden md:flex space-x-10 text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500">
                 <a href="#inicio" class="hover:text-amber-600 transition">Inicio</a>
-                <a href="#nosotros" class="hover:text-amber-600 transition">Nosotros</a>
-                <a href="#materiales" class="hover:text-amber-600 transition">Guía de Materiales</a>
+                <a href="#materiales" class="hover:text-amber-600 transition">Materiales</a>
                 <a href="#catalogo" class="hover:text-amber-600 transition">Proyectos</a>
             </div>
-            <a href="https://wa.me/5497764032664" class="bg-stone-900 text-white px-7 py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-amber-600 transition rounded-full">
-                WhatsApp
+            <a href="https://wa.me/5497764032664" class="bg-stone-900 text-white px-6 py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-amber-600 transition rounded-full">
+                Contacto
             </a>
         </div>
     </nav>
 
-    <!-- HERO PRINCIPAL -->
-    <section id="inicio" class="hero-bg h-screen flex items-center justify-center text-center text-white px-6">
-        <div class="max-w-5xl animate-up">
-            <span class="text-amber-500 text-[10px] font-bold uppercase tracking-[0.6em] mb-6 block">Artesanos de la piedra natural</span>
-            <h1 class="font-serif-brand text-6xl md:text-9xl mb-8 leading-none">Transformamos <br> Espacios</h1>
-            <p class="text-xs md:text-lg uppercase tracking-[0.4em] mb-12 text-stone-300 max-w-2xl mx-auto">Mesadas, Baños y Revestimientos con acabados de precisión</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-6">
-                <a href="#catalogo" class="bg-amber-600 text-white px-12 py-5 text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-white hover:text-stone-900 transition shadow-xl shadow-amber-600/20">Explorar Obras</a>
+    <!-- Hero -->
+    <section id="inicio" class="hero-bg h-[80vh] flex items-center justify-center text-center text-white px-6">
+        <div class="max-w-4xl">
+            <span class="text-amber-500 text-[11px] font-bold uppercase tracking-[0.6em] mb-4 block">Marmolería Premium</span>
+            <h1 class="font-serif-brand text-5xl md:text-8xl mb-8 leading-tight">Elevamos su Hogar</h1>
+            <p class="text-xs md:text-sm uppercase tracking-[0.4em] mb-10 text-stone-300">Cortes de precisión y colocación especializada</p>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE MATERIALES DETALLADA -->
+    <section id="materiales" class="py-24 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="font-serif-brand text-4xl md:text-5xl text-stone-900 mb-4">Nuestros Productos</h2>
+                <div class="w-20 h-1 bg-amber-600 mx-auto mb-6"></div>
+                <p class="text-stone-500 max-w-2xl mx-auto">Conozca las características técnicas de nuestras superficies para elegir la opción ideal según su necesidad.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- SILSTONE -->
+                <div class="material-card p-6 rounded-2xl flex flex-col">
+                    <div class="h-48 overflow-hidden rounded-xl mb-6">
+                        <img src="source/mesada3.webp" class="w-full h-full object-cover" alt="Silestone">
+                    </div>
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-serif-brand text-xl text-stone-900">Silestone</h3>
+                        <span class="tag-tech bg-blue-50 text-blue-600">Quartz</span>
+                    </div>
+                    <p class="text-sm text-stone-500 leading-relaxed mb-6 flex-grow">Compuesto por un 94% de Cuarzo Natural. Ofrece una superficie extremadamente dura y resistente.</p>
+                    <div class="space-y-2 mb-6 text-[11px] uppercase font-bold tracking-wider">
+                        <div class="flex justify-between border-b border-stone-50 pb-1">
+                            <span class="text-stone-400">Manchas</span>
+                            <span class="text-green-600">Resistente</span>
+                        </div>
+                        <div class="flex justify-between border-b border-stone-50 pb-1">
+                            <span class="text-stone-400">Rayaduras</span>
+                            <span class="text-green-600">Muy Alta</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-stone-400">Calor</span>
+                            <span class="text-amber-600">Precaución</span>
+                        </div>
+                    </div>
+                    <p class="text-[10px] text-stone-400 italic">Ideal para: Cocinas y Baños modernos.</p>
+                </div>
+
+                <!-- DEKTON -->
+                <div class="material-card p-6 rounded-2xl flex flex-col">
+                    <div class="h-48 overflow-hidden rounded-xl mb-6">
+                        <img src="source/isla5.webp" class="w-full h-full object-cover" alt="Dekton">
+                    </div>
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-serif-brand text-xl text-stone-900">Dekton</h3>
+                        <span class="tag-tech bg-purple-50 text-purple-600">Ultracompact</span>
+                    </div>
+                    <p class="text-sm text-stone-500 leading-relaxed mb-6 flex-grow">Superficie ultra-compacta. Lo último en tecnología: soporta fuego directo sin dañarse.</p>
+                    <div class="space-y-2 mb-6 text-[11px] uppercase font-bold tracking-wider">
+                        <div class="flex justify-between border-b border-stone-50 pb-1">
+                            <span class="text-stone-400">Rayos UV</span>
+                            <span class="text-green-600">Inmune</span>
+                        </div>
+                        <div class="flex justify-between border-b border-stone-50 pb-1">
+                            <span class="text-stone-400">Calor</span>
+                            <span class="text-green-600">Extremo</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-stone-400">Porosidad</span>
+                            <span class="text-green-600">0% (Nula)</span>
+                        </div>
+                    </div>
+                    <p class="text-[10px] text-stone-400 italic">Ideal para: Quinchos, Fachadas y Cocinas PRO.</p>
+                </div>
+
+                <!-- MÁRMOL -->
+                <div class="material-card p-6 rounded-2xl flex flex-col">
+                    <div class="h-48 overflow-hidden rounded-xl mb-6">
+                        <img src="source/mesada2.webp" class="w-full h-full object-cover" alt="Mármol">
+                    </div>
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-serif-brand text-xl text-stone-900">Mármol</h3>
+                        <span class="tag-tech bg-stone-100 text-stone-600">Natural</span>
+                    </div>
+                    <p class="text-sm text-stone-500 leading-relaxed mb-6 flex-grow">La elegancia de la piedra natural. Cada veta es única. Requiere cuidados especiales.</p>
+                    <div class="space-y-2 mb-6 text-[11px] uppercase font-bold tracking-wider">
+                        <div class="flex justify-between border-b border-stone-50 pb-1">
+                            <span class="text-stone-400">Estética</span>
+                            <span class="text-amber-700">Inigualable</span>
+                        </div>
+                        <div class="flex justify-between border-b border-stone-50 pb-1">
+                            <span class="text-stone-400">Origen</span>
+                            <span class="text-stone-600">100% Natural</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-stone-400">Cuidado</span>
+                            <span class="text-amber-600">Alta</span>
+                        </div>
+                    </div>
+                    <p class="text-[10px] text-stone-400 italic">Ideal para: Baños, Revestimientos y Mesas.</p>
+                </div>
+
+                <!-- GRANITO -->
+                <div class="material-card p-6 rounded-2xl flex flex-col">
+                    <div class="h-48 overflow-hidden rounded-xl mb-6">
+                        <img src="source/mesada1.webp" class="w-full h-full object-cover" alt="Granito">
+                    </div>
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-serif-brand text-xl text-stone-900">Granito</h3>
+                        <span class="tag-tech bg-orange-50 text-orange-600">Eterno</span>
+                    </div>
+                    <p class="text-sm text-stone-500 leading-relaxed mb-6 flex-grow">La opción más fiel para el uso diario. Resistente a golpes y temperaturas medias-altas.</p>
+                    <div class="space-y-2 mb-6 text-[11px] uppercase font-bold tracking-wider">
+                        <div class="flex justify-between border-b border-stone-50 pb-1">
+                            <span class="text-stone-400">Durabilidad</span>
+                            <span class="text-green-600">Máxima</span>
+                        </div>
+                        <div class="flex justify-between border-b border-stone-50 pb-1">
+                            <span class="text-stone-400">Costo</span>
+                            <span class="text-green-600">Accesible</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-stone-400">Higiene</span>
+                            <span class="text-green-600">Alta</span>
+                        </div>
+                    </div>
+                    <p class="text-[10px] text-stone-400 italic">Ideal para: Cocinas de alto uso diario.</p>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN NOSOTROS -->
-    <section id="nosotros">
-        <div class="hero-nosotros-bg py-32 flex items-center justify-center text-center text-white px-6">
-            <div class="max-w-3xl">
-                <h2 class="font-serif-brand text-5xl md:text-7xl mb-4">Quiénes somos</h2>
-                <div class="w-24 h-1 bg-amber-600 mx-auto mb-8"></div>
-                <p class="text-xs md:text-sm uppercase tracking-[0.4em] opacity-80 leading-loose">Especialistas en proyectos de alta gama con Mármol, Granito, Silestone y Dekton.</p>
-            </div>
-        </div>
-
-        <div class="py-24 px-6 bg-white">
-            <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-                <div class="space-y-8 text-stone-600 text-lg leading-relaxed">
-                    <h3 class="font-serif-brand text-3xl text-stone-900 leading-tight">Calidad, diseño y atención personalizada</h3>
-                    <p>Acompañamos a cada cliente desde la idea inicial hasta la instalación final, combinando habilidad artesanal con tecnología de vanguardia.</p>
-                    <p class="border-l-4 border-amber-600 pl-6 italic text-stone-400">"Cada proyecto es único y nuestro compromiso es lograr resultados que superen las expectativas."</p>
-                    <div class="pt-6">
-                        <a href="https://wa.me/5497764032664" class="inline-block border-2 border-stone-900 text-stone-900 px-10 py-4 text-[10px] font-bold uppercase tracking-widest hover:bg-stone-900 hover:text-white transition">
-                            Pedir Presupuesto
-                        </a>
-                    </div>
-                </div>
-                <div class="relative">
-                    <img src="source/nosotros.webp" alt="Trabajo en mármol" class="rounded-lg shadow-2xl w-full h-[500px] object-cover" onerror="this.src='https://placehold.co/800x1000?text=Nosotros'">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- EXPLORADOR DE MATERIALES DETALLADO -->
-    <section id="materiales" class="py-24 px-6 bg-stone-900 text-white">
-        <div class="max-w-6xl mx-auto text-center mb-16">
-            <span class="text-amber-500 text-[10px] font-bold uppercase tracking-[0.4em] block mb-4">Manual de Superficies</span>
-            <h2 class="font-serif-brand text-4xl md:text-5xl mb-6">Guía Técnica de Materiales</h2>
-            <p class="text-stone-400 max-w-2xl mx-auto">Seleccionar la piedra correcta depende del uso y el ambiente. Conozca las ventajas de cada opción.</p>
-        </div>
-        
-        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Mármol Detallado -->
-            <div id="card-marmol" class="texture-card active bg-stone-800 p-8 rounded-2xl cursor-pointer group" onclick="selectDetailMaterial('marmol')">
-                <div class="h-48 rounded-xl mb-6 overflow-hidden">
-                    <img src="source/mesada2.webp" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Mármol">
-                </div>
-                <h3 class="font-serif-brand text-xl mb-4 text-amber-500">Mármol Natural</h3>
-                <div class="space-y-4 text-xs text-stone-300">
-                    <p class="leading-relaxed">Símbolo de lujo. Cada pieza es una obra de arte irrepetible creada por la naturaleza.</p>
-                    <div class="grid grid-cols-2 gap-2 border-t border-stone-700 pt-4">
-                        <div>
-                            <span class="text-[9px] uppercase font-bold text-stone-500 block mb-1">Porosidad</span>
-                            <span class="text-white">Alta</span>
-                        </div>
-                        <div>
-                            <span class="text-[9px] uppercase font-bold text-stone-500 block mb-1">Dureza</span>
-                            <span class="text-white">Media</span>
-                        </div>
-                    </div>
-                    <div class="pt-2">
-                        <span class="text-[9px] uppercase font-bold text-amber-600 block mb-1">Uso Ideal</span>
-                        <p class="text-stone-100">Baños, pisos, revestimientos de pared, mesas de living.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Granito Detallado -->
-            <div id="card-granito" class="texture-card bg-stone-800 p-8 rounded-2xl cursor-pointer group" onclick="selectDetailMaterial('granito')">
-                <div class="h-48 rounded-xl mb-6 overflow-hidden">
-                    <img src="source/mesada1.webp" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Granito">
-                </div>
-                <h3 class="font-serif-brand text-xl mb-4 text-amber-500">Granito Natural</h3>
-                <div class="space-y-4 text-xs text-stone-300">
-                    <p class="leading-relaxed">La piedra más resistente para el hogar. Soporta altas temperaturas y el uso rudo diario.</p>
-                    <div class="grid grid-cols-2 gap-2 border-t border-stone-700 pt-4">
-                        <div>
-                            <span class="text-[9px] uppercase font-bold text-stone-500 block mb-1">Porosidad</span>
-                            <span class="text-white">Baja</span>
-                        </div>
-                        <div>
-                            <span class="text-[9px] uppercase font-bold text-stone-500 block mb-1">Dureza</span>
-                            <span class="text-white">Muy Alta</span>
-                        </div>
-                    </div>
-                    <div class="pt-2">
-                        <span class="text-[9px] uppercase font-bold text-amber-600 block mb-1">Uso Ideal</span>
-                        <p class="text-stone-100">Mesadas de cocina, quinchos, escaleras de alto tránsito.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tecnológicos Detallado -->
-            <div id="card-tecnologico" class="texture-card bg-stone-800 p-8 rounded-2xl cursor-pointer group" onclick="selectDetailMaterial('tecnologico')">
-                <div class="h-48 rounded-xl mb-6 overflow-hidden">
-                    <img src="source/mesada3.webp" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Quartz">
-                </div>
-                <h3 class="font-serif-brand text-xl mb-4 text-amber-500">Superficies Pro</h3>
-                <div class="space-y-4 text-xs text-stone-300">
-                    <p class="leading-relaxed">Quartz (Silestone) y Neolith/Dekton. Ofrecen colores uniformes imposibles en la naturaleza.</p>
-                    <div class="grid grid-cols-2 gap-2 border-t border-stone-700 pt-4">
-                        <div>
-                            <span class="text-[9px] uppercase font-bold text-stone-500 block mb-1">Porosidad</span>
-                            <span class="text-white">Nula (0%)</span>
-                        </div>
-                        <div>
-                            <span class="text-[9px] uppercase font-bold text-stone-500 block mb-1">Mantenimiento</span>
-                            <span class="text-white">Mínimo</span>
-                        </div>
-                    </div>
-                    <div class="pt-2">
-                        <span class="text-[9px] uppercase font-bold text-amber-600 block mb-1">Uso Ideal</span>
-                        <p class="text-stone-100">Cocinas modernas, laboratorios, baños minimalistas.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Info Técnica Expandida -->
-        <div id="material-extra-info" class="max-w-4xl mx-auto mt-16 p-8 bg-stone-800/50 rounded-3xl border border-stone-700 animate-up">
-            <div id="info-content">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <div>
-                        <h4 class="font-serif-brand text-2xl mb-4 flex items-center gap-3">
-                            <i class="fas fa-info-circle text-amber-600"></i> Consejos de Cuidado
-                        </h4>
-                        <ul class="space-y-3 text-sm text-stone-400">
-                            <li><i class="fas fa-check text-amber-600 mr-2"></i> Limpiar derrames ácidos (limón, vino) inmediatamente en mármoles.</li>
-                            <li><i class="fas fa-check text-amber-600 mr-2"></i> No utilizar productos abrasivos o lavandina pura.</li>
-                            <li><i class="fas fa-check text-amber-600 mr-2"></i> Usar siempre tablas de picar para proteger el brillo de la piedra.</li>
-                        </ul>
-                    </div>
-                    <div class="flex items-center justify-center md:border-l md:border-stone-700 pl-4">
-                        <p class="text-stone-300 italic text-sm text-center">"La elección del material define no solo la estética, sino la durabilidad de su inversión por las próximas décadas."</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- GALERÍA DE PROYECTOS -->
+    <!-- Galería -->
     <section id="catalogo" class="py-24 px-6 bg-stone-50">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-                <div class="max-w-xl">
-                    <h2 class="font-serif-brand text-4xl md:text-5xl mb-4 text-stone-900">Portfolio de Obras</h2>
-                    <p class="text-stone-500 italic">Cada trabajo es ejecutado con maquinaria de precisión y terminación artesanal.</p>
+                <div>
+                    <h2 class="font-serif-brand text-4xl text-stone-900 mb-4">Nuestras Obras</h2>
+                    <div class="w-16 h-1 bg-amber-600"></div>
                 </div>
-                <div class="flex flex-wrap gap-2" id="filter-container"></div>
+                <div class="flex flex-wrap gap-2" id="filter-container">
+                    <!-- Filtros dinámicos -->
+                </div>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10" id="project-grid"></div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10" id="project-grid">
+                <!-- Proyectos dinámicos -->
+            </div>
         </div>
     </section>
 
-    <!-- FOOTER OFICIAL INTEGRADO -->
+    <!-- Footer oficial solicitado -->
     <footer class="footer">
         <div class="footer-container">
             <!-- MARCA -->
@@ -343,7 +309,7 @@
                    class="btn-footer whatsapp">
                     💬 WhatsApp
                 </a>
-                <p>📞 11 6409-2664</p>
+                <p>📞 11 2606-9026</p>
                 <p>✉ contacto@revansmarmoleria.com</p>
             </div>
 
@@ -354,7 +320,7 @@
                     <a href="#" class="social">Instagram</a>
                     <a href="#" class="social">Facebook</a>
                 </div>
-                <p class="horario font-bold text-amber-600">
+                <p class="horario">
                     Lunes a Viernes<br>
                     9:00 a 17:00 hs
                 </p>
@@ -366,71 +332,38 @@
         </div>
     </footer>
 
-    <!-- MODAL DETALLE -->
-    <div id="modal-project" class="fixed inset-0 z-[100] modal-overlay flex items-center justify-center p-4 opacity-0 pointer-events-none">
-        <div class="bg-white max-w-6xl w-full rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row transform scale-95 transition-all duration-300" id="modal-box">
-            <div class="w-full md:w-2/3 h-80 md:h-[700px] relative overflow-hidden">
-                <img id="modal-img" src="" class="w-full h-full object-cover">
-            </div>
-            <div class="w-full md:w-1/3 p-12 flex flex-col justify-between bg-stone-50">
-                <div>
-                    <button onclick="closeModal()" class="text-stone-300 hover:text-stone-900 transition mb-10"><i class="fas fa-arrow-left mr-2"></i> Volver</button>
-                    <h3 id="modal-title" class="font-serif-brand text-4xl text-stone-900 mb-6"></h3>
-                    <p id="modal-desc" class="text-stone-600 leading-relaxed text-sm italic mb-8"></p>
-                    <div class="space-y-4">
-                        <span class="text-[9px] font-bold text-amber-600 uppercase tracking-widest block">Material Utilizado</span>
-                        <p id="modal-material" class="text-xl font-semibold capitalize text-stone-800"></p>
-                    </div>
-                </div>
-                <a href="https://wa.me/5491164032664" class="block w-full bg-stone-900 text-white text-center py-5 text-[10px] font-bold uppercase tracking-widest hover:bg-amber-600 transition rounded-xl mt-12">
-                    Consultar Presupuesto
-                </a>
-            </div>
-        </div>
-    </div>
-
     <script>
         const trabajos = {
-            "mesadas": [
-                { "id": "ms-01", "titulo": "Isla Desayunadora Pro", "imagen": "source/mesada1.webp", "descripcion": "Instalación de Granito Negro Brasil con espesor de 2cm y terminación de cantos pulidos a 45 grados.", "material": "granito" },
-                { "id": "ms-02", "titulo": "Isla Escultural Carrara", "imagen": "source/mesada2.webp", "descripcion": "Mármol Carrara seleccionado por su veta gris suave. Instalación en cascada.", "material": "marmol" },
-                { "id": "ms-03", "titulo": "Cocina White Quartz", "imagen": "source/mesada3.webp", "descripcion": "Superficie de cuarzo blanco puro, resistente a manchas y rayaduras.", "material": "cuarzo" }
+            "cocinas": [
+                { id: 1, titulo: "Isla Calacatta Quartz", imagen: "source/isla7.webp", material: "Silestone" },
+                { id: 2, titulo: "Mesada Negro Brasil", imagen: "source/mesada1.webp", material: "Granito" },
+                { id: 3, titulo: "Desayunador Moderno", imagen: "source/isla6.webp", material: "Dekton" }
             ],
             "baños": [
-                { "id": "bn-01", "titulo": "Vanitory de Diseño", "imagen": "source/isla1.webp", "descripcion": "Pieza única tallada en Mármol con bacha integrada.", "material": "marmol" },
-                { "id": "bn-02", "titulo": "Baño Gris Atemporal", "imagen": "source/isla2.webp", "descripcion": "Mesada en Granito Gris Mara. Alta durabilidad.", "material": "granito" }
+                { id: 4, titulo: "Vanitory Carrara", imagen: "source/mesada2.webp", material: "Mármol" },
+                { id: 5, titulo: "Revestimiento Minimal", imagen: "source/mesada3.webp", material: "Silestone" }
             ],
-            "revestimientos": [
-                { "id": "rv-01", "titulo": "Fachada en Marmetas", "imagen": "source/marmetas.webp", "descripcion": "Revestimiento rústico para jerarquizar ingresos. Piedra natural.", "material": "piedra" }
+            "exteriores": [
+                { id: 6, titulo: "Quincho Pro", imagen: "source/isla5.webp", material: "Granito" }
             ]
         };
 
         let allProjects = [];
 
         function init() {
-            for (const cat in trabajos) {
-                trabajos[cat].forEach(item => allProjects.push({...item, category: cat}));
-            }
+            Object.keys(trabajos).forEach(cat => {
+                trabajos[cat].forEach(p => allProjects.push({...p, category: cat}));
+            });
             renderFilters();
             renderGallery(allProjects);
         }
 
-        function abrirMapa(){
-            window.open("https://www.google.com/maps?q=Sebastián+Pizarro+876+Merlo+Buenos+Aires", "_blank");
-        }
-
-        function selectDetailMaterial(type) {
-            document.querySelectorAll('.texture-card').forEach(c => c.classList.remove('active'));
-            document.getElementById(`card-${type}`).classList.add('active');
-            // Aquí se puede añadir un scroll suave o cargar info específica extra en el contenedor inferior
-        }
-
         function renderFilters() {
             const container = document.getElementById('filter-container');
-            const cats = ['todos', ...Object.keys(trabajos)];
+            const cats = ["todos", "cocinas", "baños", "exteriores"];
             cats.forEach(cat => {
                 const btn = document.createElement('button');
-                btn.className = `filter-btn px-6 py-2 rounded-full border border-stone-200 text-[9px] font-bold uppercase tracking-widest hover:border-amber-600 transition ${cat === 'todos' ? 'active' : ''}`;
+                btn.className = `filter-btn px-6 py-2 rounded-full border border-stone-200 text-[9px] font-bold uppercase tracking-widest transition ${cat === 'todos' ? 'active' : ''}`;
                 btn.textContent = cat;
                 btn.onclick = () => {
                     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -444,40 +377,24 @@
         function renderGallery(items) {
             const grid = document.getElementById('project-grid');
             grid.innerHTML = '';
-            items.forEach((item, idx) => {
-                const div = document.createElement('div');
-                div.className = "card-project bg-white rounded-3xl overflow-hidden border border-stone-100 cursor-pointer flex flex-col h-full";
-                div.style.animation = `slideUp 0.6s ease forwards ${idx * 0.05}s`;
-                div.innerHTML = `
-                    <div class="h-72 overflow-hidden relative">
-                        <img src="${item.imagen}" class="w-full h-full object-cover transition duration-700 hover:scale-110" onerror="this.src='https://placehold.co/600x400?text=Obra+Revans'">
+            items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-100 group cursor-pointer";
+                card.innerHTML = `
+                    <div class="h-64 overflow-hidden">
+                        <img src="${item.imagen}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     </div>
-                    <div class="p-8 flex-grow flex flex-col">
-                        <h4 class="font-serif-brand text-xl mb-3 text-stone-900">${item.titulo}</h4>
-                        <div class="flex justify-between items-center pt-6 border-t border-stone-50">
-                            <span class="text-amber-600 text-[10px] font-bold uppercase tracking-widest">Ver Obra</span>
-                        </div>
+                    <div class="p-6">
+                        <span class="text-[9px] text-amber-600 font-bold uppercase tracking-widest">${item.material}</span>
+                        <h4 class="font-serif-brand text-lg text-stone-900 mt-1">${item.titulo}</h4>
                     </div>
                 `;
-                div.onclick = () => openModal(item);
-                grid.appendChild(div);
+                grid.appendChild(card);
             });
         }
 
-        function openModal(item) {
-            document.getElementById('modal-img').src = item.imagen;
-            document.getElementById('modal-title').textContent = item.titulo;
-            document.getElementById('modal-material').textContent = item.material;
-            document.getElementById('modal-desc').textContent = item.descripcion;
-            document.getElementById('modal-project').classList.remove('opacity-0', 'pointer-events-none');
-            document.getElementById('modal-box').classList.remove('scale-95');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            document.getElementById('modal-project').classList.add('opacity-0', 'pointer-events-none');
-            document.getElementById('modal-box').classList.add('scale-95');
-            document.body.style.overflow = '';
+        function abrirMapa(){
+            window.open("https://www.google.com/maps?q=Sebastián+Pizarro+876+Merlo+Buenos+Aires", "_blank");
         }
 
         window.onload = init;
