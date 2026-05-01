@@ -1,222 +1,219 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revans Marmolería | Arte en Piedra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        :root {
+            --gold: #c5a059;
+            --dark: #0f0f0f;
+            --light-gray: #f8f9fa;
+        }
 
-<title>Marmolería Premium</title>
+        body { font-family: 'Inter', sans-serif; background-color: var(--light-gray); color: var(--dark); }
+        h1, h2, h3, .brand-font { font-family: 'Cinzel', serif; }
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('source/isla7.webp'); /* Usando una de tus imágenes de fondo */
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            height: 90vh;
+        }
 
-<link rel="stylesheet" href="css/styles.css">
-<link rel="stylesheet" href="css/footer.css">
-<link rel="stylesheet" href="css/productos.css">
+        header { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
+
+        .gallery-item { overflow: hidden; position: relative; cursor: pointer; border-radius: 4px; }
+        .gallery-item img { transition: transform 0.6s cubic-bezier(0.25, 0.45, 0.45, 0.95); width: 100%; height: 100%; object-fit: cover; }
+        .gallery-item:hover img { transform: scale(1.1); }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            transition: bottom 0.4s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            color: white;
+        }
+
+        .gallery-item:hover .gallery-overlay { bottom: 0; }
+
+        .filter-btn {
+            padding: 8px 20px;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            cursor: pointer;
+        }
+
+        .filter-btn.active { border-color: var(--gold); color: var(--gold); font-weight: bold; }
+
+        .btn-wpp { background-color: #25d366; transition: all 0.3s ease; }
+        .btn-wpp:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); }
+
+        .section-padding { padding: 80px 5%; }
+    </style>
 </head>
-
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-  <div class="nav-logo">Marmolería</div>
+    <header class="fixed w-full z-50 py-4 px-8 flex justify-between items-center shadow-sm">
+        <div class="brand-font text-2xl font-bold flex items-center">
+            <span class="text-amber-600 mr-2">REVANS</span> 
+            <span class="text-sm font-light tracking-[0.3em] hidden sm:block">MARMOLERÍA</span>
+        </div>
+        <nav class="hidden md:flex space-x-8 text-sm font-medium tracking-widest uppercase text-gray-600">
+            <a href="#inicio" class="hover:text-amber-600 transition">Inicio</a>
+            <a href="#materiales" class="hover:text-amber-600 transition">Materiales</a>
+            <a href="#galeria" class="hover:text-amber-600 transition">Proyectos</a>
+            <a href="#contacto" class="hover:text-amber-600 transition">Contacto</a>
+        </nav>
+        <a href="https://wa.me/5491136155981" class="text-xs border border-black px-6 py-2 hover:bg-black hover:text-white transition uppercase tracking-widest font-bold">
+            Cotizar
+        </a>
+    </header>
 
-  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    <section id="inicio" class="hero-section flex items-center justify-center text-center text-white px-4">
+        <div class="max-w-4xl">
+            <span class="uppercase tracking-[0.5em] text-xs mb-4 block text-amber-200">Artesanos de la piedra natural</span>
+            <h1 class="text-4xl md:text-7xl mb-6">Excelencia en Marmolería</h1>
+            <p class="text-lg font-light mb-8 max-w-2xl mx-auto opacity-90">
+                Diseño, fabricación e instalación personalizada. Especialistas en mesadas de cocina, islas y vanitorys.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#galeria" class="bg-white text-black px-10 py-4 uppercase text-xs tracking-widest font-bold hover:bg-amber-600 hover:text-white transition">Ver Galería</a>
+                <a href="#contacto" class="border border-white text-white px-10 py-4 uppercase text-xs tracking-widest font-bold hover:bg-white hover:text-black transition">Contacto</a>
+            </div>
+        </div>
+    </section>
 
-  <div class="nav-links" id="menu">
-    <a href="#">Inicio</a>
-    <a href="pages/nosotros.html">Quiénes somos</a>
-    <a href="#servicios">Servicios</a>
-    <a href="#productos">Productos</a>
-    <a href="#trabajos">Trabajos</a>
-  </div>
-</nav>
+    <!-- Galería Dinámica -->
+    <section id="galeria" class="section-padding">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl uppercase tracking-widest mb-4">Nuestros Trabajos</h2>
+            <div class="w-20 h-1 bg-amber-600 mx-auto mb-8"></div>
+            
+            <!-- Filtros -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12" id="filter-container">
+                <button class="filter-btn active" data-filter="todos">Todos</button>
+                <button class="filter-btn" data-filter="cocinas">Cocinas e Islas</button>
+                <button class="filter-btn" data-filter="baños">Baños</button>
+                <button class="filter-btn" data-filter="detalles">Otros</button>
+            </div>
+        </div>
 
-<!-- HERO -->
-<header class="hero">
-  <div class="overlay">
-    <div class="hero-content">
-      <h1>Transformamos espacios en obras de diseño</h1>
-      <p>Mármol, granito y superficies premium con terminaciones de alta gama</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="gallery-grid">
+            <!-- Los trabajos se cargarán aquí desde el JSON -->
+            <div class="col-span-full text-center py-20 text-gray-400">Cargando catálogo...</div>
+        </div>
+    </section>
 
-      <div class="hero-buttons">
-        <a href="#trabajos" class="btn">Ver trabajos</a>
-        <a href="https://wa.me/5491164032664" class="btn btn-outline">Contactar</a>
-      </div>
-    </div>
-  </div>
-</header>
+    <section id="contacto" class="section-padding bg-black text-white">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+            <div>
+                <h2 class="text-4xl mb-6">Presupuesto sin Cargo</h2>
+                <p class="text-gray-400 mb-8">Envíanos las medidas aproximadas de tu mesada y el material que te interesa para recibir una cotización rápida.</p>
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full border border-zinc-700 flex items-center justify-center text-amber-500">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <span>Merlo, Buenos Aires</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full border border-zinc-700 flex items-center justify-center text-amber-500">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <span>11 3615-5981</span>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-zinc-900 p-8">
+                <form class="space-y-4">
+                    <input type="text" placeholder="Tu Nombre" class="w-full bg-zinc-800 p-4 outline-none focus:ring-1 focus:ring-amber-500">
+                    <input type="text" placeholder="WhatsApp / Teléfono" class="w-full bg-zinc-800 p-4 outline-none focus:ring-1 focus:ring-amber-500">
+                    <textarea placeholder="Detalles del pedido..." rows="4" class="w-full bg-zinc-800 p-4 outline-none focus:ring-1 focus:ring-amber-500"></textarea>
+                    <button class="w-full bg-amber-600 py-4 font-bold uppercase tracking-widest hover:bg-amber-700 transition">Consultar ahora</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
-<!-- SERVICIOS -->
-<section id="servicios" class="servicios animar">
-  <div class="container">
-    <h2>Servicios</h2>
+    <a href="https://wa.me/5491136155981" target="_blank" class="wpp-float fixed bottom-6 right-6 w-16 h-16 btn-wpp rounded-full flex items-center justify-center text-white text-3xl shadow-2xl z-50">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
-    <div class="servicios-grid">
-      <div class="servicio">
-        <h3>Mesadas de cocina</h3>
-        <p>Diseños a medida con materiales de alta resistencia.</p>
-      </div>
+    <script>
+        // Datos de respaldo (por si falla el fetch local durante el desarrollo)
+        const fallbackData = [
+            { id: 1, titulo: "Isla Moderna", categoria: "cocinas", material: "Cuarzo", imagen: "source/isla1.webp" },
+            { id: 2, titulo: "Mesada Baño", categoria: "baños", material: "Mármol", imagen: "source/mesada2.webp" },
+            { id: 3, titulo: "Revestimiento", categoria: "detalles", material: "Granito", imagen: "source/marmetas.webp" }
+        ];
 
-      <div class="servicio">
-        <h3>Baños premium</h3>
-        <p>Soluciones elegantes en mármol y cuarzo.</p>
-      </div>
+        async function loadGallery() {
+            const grid = document.getElementById('gallery-grid');
+            let trabajos = [];
 
-      <div class="servicio">
-        <h3>Revestimientos</h3>
-        <p>Aplicaciones en interiores y exteriores.</p>
-      </div>
-    </div>
-  </div>
-</section>
+            try {
+                const response = await fetch('trabajos.json');
+                if (!response.ok) throw new Error('Error al cargar JSON');
+                trabajos = await response.json();
+            } catch (error) {
+                console.warn("Usando datos de respaldo:", error);
+                trabajos = fallbackData;
+            }
 
-<!-- PRODUCTOS -->
-<section id="productos" class="productos">
+            renderGallery(trabajos);
+            setupFilters(trabajos);
+        }
 
-  <div class="container">
+        function renderGallery(items) {
+            const grid = document.getElementById('gallery-grid');
+            grid.innerHTML = items.map(item => `
+                <div class="gallery-item aspect-square shadow-lg" data-category="${item.categoria}">
+                    <img src="${item.imagen}" alt="${item.titulo}" onerror="this.src='https://placehold.co/600x600?text=Imagen+No+Encontrada'">
+                    <div class="gallery-overlay">
+                        <div>
+                            <p class="text-xs uppercase tracking-[0.3em] text-amber-400 mb-1">${item.material}</p>
+                            <h4 class="text-xl font-bold">${item.titulo}</h4>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
 
-    <h2>Nuestros Productos</h2>
-    <p class="subtitulo">Transformá tus espacios con nuestros materiales</p>
+        function setupFilters(trabajos) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // UI active state
+                    buttons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
 
-    <!-- SILESTONE -->
-    <div class="producto fila">
-      <div class="producto-img">
-        <img src="source/silestone.webp">
-      </div>
-      <div class="producto-texto">
-        <h3>Silestone</h3>
-        <p>
-          Superficie compuesta principalmente por cuarzo, de gran resistencia al rayado y a las manchas.
-        </p>
-        <span>Usos: mesadas, bachas, revestimientos</span>
-      </div>
-    </div>
+                    const filter = btn.getAttribute('data-filter');
+                    const filtered = filter === 'todos' 
+                        ? trabajos 
+                        : trabajos.filter(t => t.categoria === filter);
+                    
+                    renderGallery(filtered);
+                });
+            });
+        }
 
-    <!-- DEKTON -->
-    <div class="producto fila reverse">
-      <div class="producto-img">
-        <img src="source/dekton.webp">
-      </div>
-      <div class="producto-texto">
-        <h3>Dekton</h3>
-        <p>
-          Superficie ultracompacta de alta tecnología, resistente al calor, rayos UV y manchas.
-        </p>
-        <span>Usos: mesadas, pisos, fachadas</span>
-      </div>
-    </div>
-
-    <!-- MARMETAS -->
-    <div class="producto fila">
-      <div class="producto-img">
-        <img src="source/marmetas.webp">
-      </div>
-      <div class="producto-texto">
-        <h3>Marmetas</h3>
-        <p>
-          Piedra natural modular que combina estética clásica y practicidad.
-        </p>
-        <span>Usos: pisos, revestimientos</span>
-      </div>
-    </div>
-
-    <!-- MARMOTECH -->
-    <div class="producto fila reverse">
-      <div class="producto-img">
-        <img src="source/marmotech.webp">
-      </div>
-      <div class="producto-texto">
-        <h3>Marmotech</h3>
-        <p>
-          Material moderno con estética de mármol y gran durabilidad.
-        </p>
-        <span>Usos: mesadas, muebles</span>
-      </div>
-    </div>
-
-    <!-- PIEDRAS NATURALES -->
-    <div class="producto fila">
-      <div class="producto-img">
-        <img src="source/marmol.webp">
-      </div>
-      <div class="producto-texto">
-        <h3>Piedras Naturales</h3>
-        <p><strong>Mármol:</strong> elegancia natural con vetas únicas.</p>
-        <p><strong>Granito:</strong> alta resistencia para uso diario.</p>
-        <p><strong>Cuarcita:</strong> piedra premium de gran dureza.</p>
-      </div>
-    </div>
-
-  </div>
-
-</section>
-
-<!-- TRABAJOS -->
-<section id="trabajos" class="trabajos animar">
-  <div class="container">
-    <h2>Trabajos</h2>
-
-    <div class="grid">
-
-      <a href="categoria.html?cat=mesadas" class="card">
-        <img src="source/isla1.webp">
-        <div class="card-overlay"><h3>Mesadas</h3></div>
-      </a>
-
-      <a href="categoria.html?cat=banos" class="card">
-        <img src="source/bano1.webp">
-        <div class="card-overlay"><h3>Baños</h3></div>
-      </a>
-
-      <a href="categoria.html?cat=revestimientos" class="card">
-        <img src="source/revestimientos.webp">
-        <div class="card-overlay"><h3>Revestimientos</h3></div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-container">
-
-    <div class="footer-col">
-      <img src="source/logo.png" class="logo">
-      <p>Diseño y fabricación en mármol y piedras premium.</p>
-    </div>
-
-    <div class="footer-col">
-      <h3>Contacto</h3>
-      <button class="btn-footer mapa" onclick="abrirMapa()">Ver ubicación</button>
-      <a href="https://wa.me/5491164032664" class="btn-footer whatsapp">WhatsApp</a>
-      <p>📞 11 2606-9026</p>
-    </div>
-
-    <div class="footer-col">
-      <h3>Horarios</h3>
-      <p>Lunes a Viernes</p>
-      <p>9:00 a 17:00</p>
-    </div>
-
-  </div>
-
-  <div class="footer-bottom">
-    © 2026 Marmolería Premium
-  </div>
-</footer>
-
-<a href="https://wa.me/5491164032664" class="whatsapp-float">💬</a>
-
-<script src="js/animaciones.js"></script>
-
-<script>
-function abrirMapa(){
-  window.open("https://www.google.com/maps?q=Sebastián+Pizarro+876+Merlo+Buenos+Aires");
-}
-function toggleMenu(){
-  document.getElementById("menu").classList.toggle("active");
-}
-</script>
-
+        window.onload = loadGallery;
+    </script>
 </body>
 </html>

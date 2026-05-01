@@ -1,0 +1,57 @@
+{
+"mesadas": [
+{
+"id": "mesada01",
+"titulo": "Isla Desayunadora",
+"imagen": "source/mesada1.webp",
+"descripcion": "Granito negro Brasil, 1.80x0.60, pulido brillante",
+"material": "granito"
+},
+{
+"id": "mesada02",
+"titulo": "Isla Moderna",
+"imagen": "source/mesada2.webp",
+"descripcion": "Mármol Carrara, veta continua",
+"material": "marmol"
+},
+{
+"id": "mesada03",
+"titulo": "Mesada de Cocina",
+"imagen": "source/mesada3.webp",
+"descripcion": "Cuarzo blanco, terminación pulida",
+"material": "cuarzo"
+}
+],
+"baños": [
+{
+"id": "bano01",
+"titulo": "Vanitory Premium",
+"imagen": "source/isla1.webp",
+"descripcion": "Diseño a medida en mármol con bacha armada",
+"material": "marmol"
+},
+{
+"id": "bano02",
+"titulo": "Mesada de Baño",
+"imagen": "source/isla2.webp",
+"descripcion": "Granito Gris Mara, alta durabilidad",
+"material": "granito"
+}
+],
+"reevestimientos": [
+{
+"id": "revestimiento01",
+"titulo": "Pared en Marmeta",
+"imagen": "source/marmetas.webp",
+"descripcion": "Revestimiento rústico para exteriores",
+"material": "piedra"
+},
+{
+"id": "revestimiento02",
+"titulo": "Escalera de Lujo",
+"imagen": "source/isla5.webp",
+"descripcion": "Escalones en granito negro con antideslizante",
+"material": "granito"
+}
+]
+}
